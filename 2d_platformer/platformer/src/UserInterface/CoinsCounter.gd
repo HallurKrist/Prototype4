@@ -17,10 +17,16 @@ func _ready():
 		_level_node.get_node("Player1").connect("collect_coin", self, "_collect_coin")
 		_level_node.get_node("Player2").connect("collect_coin", self, "_collect_coin")
 	else:
-		var _player_path = get_node(@"../../../../Level/Player")
+		var _player_path = get_node(@"../../Level/Player")
 		_player_path.connect("collect_coin", self, "_collect_coin")
+		var _gun_path = get_node(@"../../Level/Player/Sprite/Gun")
+		_gun_path.connect("on_shoot", self, "_remove_coin")
 
 
 func _collect_coin():
 	coins_collected += 1
+	coins_label.set_text(str(coins_collected))
+	
+func _remove_coin():
+	coins_collected -= 1
 	coins_label.set_text(str(coins_collected))
