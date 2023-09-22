@@ -23,10 +23,13 @@ onready var sprint_cooldown: Timer = $SprintCooldown
 var sprint_resource = 100
 var disable_sprint = false
 
+var init_size
+
 export var sprint_time = 3
 
 
 func _ready():
+	init_size = sprite.scale.x
 	# Static types are necessary here to avoid warnings.
 	var camera: Camera2D = $Camera
 	if action_suffix == "_p1":
@@ -81,9 +84,9 @@ func _physics_process(_delta):
 	# This will make Robi face left or right depending on the direction you move.
 	if direction.x != 0:
 		if direction.x > 0:
-			sprite.scale.x = 1
+			sprite.scale.x = init_size
 		else:
-			sprite.scale.x = -1
+			sprite.scale.x = -init_size
 
 	# We use the sprite's scale to store Robi’s look direction which allows us to shoot
 	# bullets forward.
