@@ -4,8 +4,11 @@ extends Actor
 
 # warning-ignore:unused_signal
 signal collect_coin()
+signal sprint_resource_changed(new_value)
 
 const FLOOR_DETECT_DISTANCE = 20.0
+
+export var sprint_multiplier = 2.0
 
 export(String) var action_suffix = ""
 
@@ -15,6 +18,12 @@ onready var shoot_timer = $ShootAnimation
 onready var sprite = $Sprite
 onready var sound_jump = $Jump
 onready var gun = sprite.get_node(@"Gun")
+onready var sprint_cooldown: Timer = $SprintCooldown
+
+var sprint_resource = 100
+var disable_sprint = false
+
+export var sprint_time = 3
 
 
 func _ready():
@@ -90,6 +99,27 @@ func _physics_process(_delta):
 			shoot_timer.start()
 		animation_player.play(animation)
 
+func _process(delta):
+	# update sprint resource
+	if (disable_sprint):
+		return
+	if (Input.is_action_pressed("sprint")):
+		sprint_resource -= 100 * delta / sprint_time # resource is percentage
+		if sprint_resource < 0:
+			disable_sprint = true
+			sprint_resource = 0
+			sprint_cooldown.start()
+	else:
+		sprint_resource += 100 * delta / sprint_time
+		if (sprint_resource > 100):
+			sprint_resource = 100
+	if (Input.is_action_just_released("sprint")):
+		disable_sprint = true
+		sprint_cooldown.start()
+	emit_signal("sprint_resource_changed", sprint_resource)
+
+func enable_sprint():
+	disable_sprint = false
 
 func get_direction():
 	if (Input.is_action_pressed("lock_move")):
@@ -109,7 +139,9 @@ func calculate_move_velocity(
 		is_jump_interrupted
 	):
 	var velocity = linear_velocity
-	velocity.x = speed.x * direction.x
+	var is_sprinting = Input.is_action_pressed("sprint") and not disable_sprint
+	var multiplier = sprint_multiplier if is_sprinting else 1
+	velocity.x = speed.x * direction.x * multiplier
 	if direction.y != 0.0:
 		velocity.y = speed.y * direction.y
 	if is_jump_interrupted:
@@ -134,3 +166,7 @@ func get_new_animation(is_shooting = false):
 	if is_shooting:
 		animation_new += "_weapon"
 	return animation_new
+
+
+func _on_SprintCooldown_timeout():
+	enable_sprint()
