@@ -192,6 +192,7 @@ extents = Vector2( 10, 14 )
 collision_mask = 30
 script = ExtResource( 1 )
 speed = Vector2( 75, 350 )
+sprint_time = 1
 
 [node name="ShootAnimation" type="Timer" parent="."]
 process_mode = 0
@@ -288,3 +289,9 @@ scale = Vector2( 0.7, 0.7 )
 z_index = 10
 texture = ExtResource( 10 )
 script = ExtResource( 11 )
+
+[node name="SprintCooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="SprintCooldown" to="." method="_on_SprintCooldown_timeout"]
