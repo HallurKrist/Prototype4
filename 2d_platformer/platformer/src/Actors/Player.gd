@@ -7,6 +7,8 @@ signal collect_coin()
 
 const FLOOR_DETECT_DISTANCE = 20.0
 
+export var sprint_multiplier = 2.0
+
 export(String) var action_suffix = ""
 
 onready var platform_detector = $PlatformDetector
@@ -109,7 +111,8 @@ func calculate_move_velocity(
 		is_jump_interrupted
 	):
 	var velocity = linear_velocity
-	velocity.x = speed.x * direction.x
+	var multiplier = sprint_multiplier if Input.is_action_pressed("sprint") else 1
+	velocity.x = speed.x * direction.x * multiplier
 	if direction.y != 0.0:
 		velocity.y = speed.y * direction.y
 	if is_jump_interrupted:
