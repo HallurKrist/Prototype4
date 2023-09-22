@@ -1,0 +1,74 @@
+[33mcommit b6a0410ef2da0d637c3af3bf3a0bd1cceb0dd579[m[33m ([m[1;36mHEAD -> [m[1;32msprites[m[33m)[m
+Author: Hallur Kristinn Hallsson <hallurkrist@gmail.com>
+Date:   Fri Sep 22 14:59:03 2023 +0200
+
+    bullet/coin pickup implemented
+
+[33mcommit c2830263c642f336b372982cdfae42d47a23afb6[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: 5cd023c b4e8801
+Author: Magnus Dalsgaard Larsen <45166031+BlueMango10@users.noreply.github.com>
+Date:   Fri Sep 22 09:49:47 2023 +0200
+
+    Merge pull request #3 from HallurKrist/movement-tweaks
+    
+    Movement tweaks
+
+[33mcommit b4e880164f9edc580e36f2ab8d6f000f3e59769a[m
+Author: Magnus Dalsgaard Larsen <daml@itu.dk>
+Date:   Fri Sep 22 09:48:03 2023 +0200
+
+    add sprint resource meter
+
+[33mcommit c67f9220548c6a2b20ec26bf4605b2da8c967a7e[m
+Author: Magnus Dalsgaard Larsen <daml@itu.dk>
+Date:   Fri Sep 22 08:19:16 2023 +0200
+
+    add sprint and lowered base speed
+
+[33mcommit 5cd023ce1fd0e0b1294bbf58d693e2f838856df1[m
+Merge: 4ffefd5 179341a
+Author: Magnus Dalsgaard Larsen <45166031+BlueMango10@users.noreply.github.com>
+Date:   Thu Sep 21 19:40:33 2023 +0200
+
+    Merge pull request #2 from HallurKrist/bullet-coins
+    
+    made shooting consume coins
+
+[33mcommit 179341adb8c637dcfa3fd4ce2212b00c666d4c7a[m
+Author: Magnus Dalsgaard Larsen <daml@itu.dk>
+Date:   Thu Sep 21 19:38:34 2023 +0200
+
+    made shooting consume coins
+
+[33mcommit 4ffefd59fc47405d608ff6fed9a3ec633aa1356d[m
+Merge: 973d156 cfca99d
+Author: Magnus Dalsgaard Larsen <45166031+BlueMango10@users.noreply.github.com>
+Date:   Thu Sep 21 19:06:34 2023 +0200
+
+    Merge pull request #1 from HallurKrist/flashlight
+    
+    Flashlight
+
+[33mcommit cfca99d4e3aa0f8e3df020c8764bc4fa5356fa7c[m
+Author: Magnus Dalsgaard Larsen <daml@itu.dk>
+Date:   Thu Sep 21 19:03:53 2023 +0200
+
+    made background darker and bluer
+
+[33mcommit 08c713b1633c9cc89d1efb5de64696ce0b5edd22[m
+Author: Magnus Dalsgaard Larsen <daml@itu.dk>
+Date:   Thu Sep 21 18:55:09 2023 +0200
+
+    move flashlight and lock movement
+
+[33mcommit 9f643bf466d6c03844aed57824700e945dde6e84[m
+Author: Magnus Dalsgaard Larsen <daml@itu.dk>
+Date:   Thu Sep 21 18:41:37 2023 +0200
+
+    add light sprite
+
+[33mcommit 973d156cfc533d9b7dfa5f280b4c7905ebe03e06[m
+Author: Hallur Kristinn Hallsson <hallurkrist@gmail.com>
+Date:   Thu Sep 21 15:06:09 2023 +0200
+
+    init
