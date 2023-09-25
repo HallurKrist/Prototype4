@@ -5,7 +5,7 @@ extends Position2D
 
 signal on_shoot()
 
-const BULLET_VELOCITY = 500.0
+const BULLET_VELOCITY = 4000.0
 const Bullet = preload("res://src/Objects/Bullet.tscn")
 
 onready var sound_shoot = $Shoot
@@ -23,7 +23,8 @@ func shoot(direction = 1):
 	var bullet = Bullet.instance()
 	bullet.global_position = global_position
 	bullet.linear_velocity = Vector2(direction * BULLET_VELOCITY, 0)
-
+	bullet.gravity_scale=0
+	
 	bullet.set_as_toplevel(true)
 	add_child(bullet)
 	sound_shoot.play()

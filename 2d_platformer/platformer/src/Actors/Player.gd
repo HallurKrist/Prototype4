@@ -101,6 +101,10 @@ func _physics_process(_delta):
 		if is_shooting:
 			shoot_timer.start()
 		animation_player.play(animation)
+	for index in get_slide_count():
+		var collision = get_slide_collision(index)
+		if(collision.collider.name.begins_with("Enemy")):
+			global_position = Vector2(75,540)
 
 func _process(delta):
 	# update sprint resource

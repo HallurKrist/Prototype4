@@ -259,6 +259,9 @@ position = Vector2( 632.725, 78.5545 )
 [node name="Enemy4" parent="Enemies" instance=ExtResource( 2 )]
 position = Vector2( 828.515, 77.262 )
 
+[node name="Enemy5" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 499, 513 )
+
 [node name="ParallaxBackground" parent="." instance=ExtResource( 7 )]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]

@@ -67,7 +67,6 @@ script = ExtResource( 2 )
 [node name="Particles2D" type="CPUParticles2D" parent="."]
 material = SubResource( 2 )
 emitting = false
-lifetime = 0.3
 speed_scale = 3.0
 local_coords = false
 texture = ExtResource( 1 )

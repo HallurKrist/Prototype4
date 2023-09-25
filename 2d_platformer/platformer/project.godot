@@ -235,6 +235,10 @@ sprint={
 2d_physics/layer_4="platforms"
 2d_physics/layer_5="ground"
 
+[mono]
+
+project/assembly_name="Platformer 2D"
+
 [physics]
 
 2d/default_gravity=900
